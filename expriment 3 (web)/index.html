@@ -1,0 +1,40 @@
+<!--
+Experiment-3
+Interactive Quiz Application
+Name: Aryan Mishra
+Date: 12-02-2026
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Simple Quiz</h1>
+    <p>Answer the questions and click Next.</p>
+
+    <div id="quizBox">
+        <h3 id="question"></h3>
+
+        <div id="options">
+            <!-- options will come from JS -->
+        </div>
+
+        <button onclick="nextQuestion()">Next</button>
+    </div>
+
+    <div id="resultBox" class="hide">
+        <h2>Quiz Completed</h2>
+        <p id="finalScore"></p>
+        <button onclick="restartQuiz()">Restart Quiz</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
