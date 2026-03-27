@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Aryan Mishra | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Aryan Mishra</h1>
+    <p>B.Tech CSE Student | Web Developer | AI Enthusiast</p>
+    <button onclick="showGreeting()">Welcome</button>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I am <b>Aryan Mishra</b>, a Computer Science student passionate about Web Development, AI, and building impactful projects.</p>
+</section>
+
+<section id="education">
+    <h2>Education</h2>
+    <ul>
+        <li>B.Tech CSE – K.R. Mangalam University (2024–2028)</li>
+        <li>Senior Secondary – Completed</li>
+    </ul>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <ul>
+        <li>HTML, CSS, JavaScript</li>
+        <li>Python, C++</li>
+        <li>React, Firebase, GitHub</li>
+    </ul>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="card">AI Skill Gap Identification Platform</div>
+    <div class="card">Portfolio Website</div>
+    <div class="card">Web Based Management System</div>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form onsubmit="return submitData()">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message"></textarea>
+        <button type="submit">Send</button>
+    </form>
+    <p id="response"></p>
+</section>
+
+<footer>
+    <p>© 2026 Aryan Mishra | All Rights Reserved</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
