@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager Pro</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- 
+    Project: Dynamic To-Do List Application
+    Name: [Your Name]
+    Date: February 13, 2026
+    Description: Task management application with add, edit, delete and completion tracking
+  -->
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Top Section -->
+    <div class="top-section">
+      <h1 class="app-title">✓ Task Manager Pro</h1>
+      <p class="app-subtitle">Stay organized and get things done!</p>
+    </div>
+
+    <!-- Add Task Section -->
+    <div class="add-task-section">
+      <input 
+        type="text" 
+        id="taskInput" 
+        class="task-input-field" 
+        placeholder="What needs to be done?"
+      >
+      <button id="addButton" class="add-task-btn">Add Task</button>
+    </div>
+
+    <!-- Task Counter -->
+    <div class="task-counter">
+      <div class="counter-box">
+        <span id="totalCount" class="count-num">0</span>
+        <p>Total</p>
+      </div>
+      <div class="counter-box">
+        <span id="doneCount" class="count-num">0</span>
+        <p>Done</p>
+      </div>
+      <div class="counter-box">
+        <span id="pendingCount" class="count-num">0</span>
+        <p>Pending</p>
+      </div>
+    </div>
+
+    <!-- Filter Options -->
+    <div class="filter-options">
+      <button class="filter-option active" data-filter="all">All Tasks</button>
+      <button class="filter-option" data-filter="active">Active</button>
+      <button class="filter-option" data-filter="done">Completed</button>
+    </div>
+
+    <!-- Tasks Container -->
+    <div class="tasks-container">
+      <ul id="tasksList" class="tasks-list">
+        <!-- Tasks will be added here -->
+      </ul>
+      
+      <div id="noTasksMsg" class="no-tasks-message">
+        <p>📋 No tasks available. Start by adding a new task!</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
