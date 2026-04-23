@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+
+{% block title %}{{ contact.name }} - Contact Details{% endblock %}
+
+{% block extra_css %}
+<style>
+    .contact-detail-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .detail-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 40px 30px;
+        border-radius: 8px 8px 0 0;
+        text-align: center;
+    }
+
+    .detail-header h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+
+    .detail-header p {
+        opacity: 0.9;
+        font-size: 1.1em;
+    }
+
+    .detail-body {
+        background: white;
+        padding: 30px;
+        border: 1px solid #e9ecef;
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .detail-section {
+        margin-bottom: 25px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .detail-section:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .detail-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .detail-item-icon {
+        font-size: 1.5em;
+        margin-right: 15px;
+        min-width: 30px;
+    }
+
+    .detail-item-content {
+        flex: 1;
+    }
+
+    .detail-item-label {
+        font-weight: 600;
+        color: #667eea;
+        font-size: 0.9em;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 5px;
+    }
+
+    .detail-item-value {
+        color: #333;
+        font-size: 1.1em;
+    }
+
+    .detail-item-value a {
+        color: #667eea;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .detail-item-value a:hover {
+        color: #764ba2;
+        text-decoration: underline;
+    }
+
+    .detail-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
+
+    .detail-actions a,
+    .detail-actions button {
+        flex: 1;
+        min-width: 120px;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    .btn-edit-detail {
+        background: #ffc107;
+        color: black;
+    }
+
+    .btn-edit-detail:hover {
+        background: #e0a800;
+    }
+
+    .btn-back {
+        background: #6c757d;
+        color: white;
+    }
+
+    .btn-back:hover {
+        background: #5a6268;
+    }
+
+    .btn-delete-detail {
+        background: #dc3545;
+        color: white;
+    }
+
+    .btn-delete-detail:hover {
+        background: #c82333;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="contact-detail-container">
+    <div class="detail-header">
+        <h1>👤 {{ contact.name }}</h1>
+        <p>Contact ID: #{{ contact.id }}</p>
+    </div>
+
+    <div class="detail-body">
+        <div class="detail-section">
+            <div class="detail-item">
+                <div class="detail-item-icon">📱</div>
+                <div class="detail-item-content">
+                    <div class="detail-item-label">Phone Number</div>
+                    <div class="detail-item-value">
+                        <a href="tel:{{ contact.phone }}">{{ contact.phone }}</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-item-icon">📧</div>
+                <div class="detail-item-content">
+                    <div class="detail-item-label">Email Address</div>
+                    <div class="detail-item-value">
+                        <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            {% if contact.created_date %}
+                <div class="detail-item">
+                    <div class="detail-item-icon">📅</div>
+                    <div class="detail-item-content">
+                        <div class="detail-item-label">Date Added</div>
+                        <div class="detail-item-value">{{ contact.created_date }}</div>
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if contact.updated_date %}
+                <div class="detail-item">
+                    <div class="detail-item-icon">✏️</div>
+                    <div class="detail-item-content">
+                        <div class="detail-item-label">Last Updated</div>
+                        <div class="detail-item-value">{{ contact.updated_date }}</div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="detail-actions">
+            <a href="{{ url_for('edit_contact', contact_id=contact.id) }}" class="btn-edit-detail">✏️ Edit</a>
+            <form method="post" action="{{ url_for('delete_contact', contact_id=contact.id) }}" style="flex: 1; margin: 0;">
+                <button type="submit" class="btn-delete-detail" style="width: 100%;" onclick="return confirm('Are you sure you want to delete {{ contact.name }}?')">🗑️ Delete</button>
+            </form>
+            <a href="{{ url_for('index') }}" class="btn-back">← Back to List</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
