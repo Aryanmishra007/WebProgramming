@@ -1,0 +1,105 @@
+<!--
+Project Title: Experiment-7 E-Commerce Website
+Name: Aryan Mishra
+Date: 2026-04-23
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experiment-7 | E-Commerce Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="topbar">
+      <div>
+        <p class="eyebrow">Experiment 7</p>
+        <h1>Velora Market</h1>
+      </div>
+      <a class="topbar-link" href="#products">Shop products</a>
+    </nav>
+
+    <div class="hero-content">
+      <div>
+        <p class="tag">Modern storefront demo</p>
+        <h2>Discover carefully selected products, built into a smooth shopping cart experience.</h2>
+        <p class="hero-copy">
+          This project demonstrates product listing, cart management, quantity updates, dynamic price calculation, checkout simulation, and browser storage.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#products">Browse Products</a>
+          <a class="secondary-btn" href="#checkout">Go to Checkout</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <h3>Store Highlights</h3>
+        <ul>
+          <li>Three premium products with clean cards</li>
+          <li>Add, remove, and update cart quantities</li>
+          <li>Temporary cart storage with localStorage</li>
+          <li>Order confirmation without real payment</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section id="products" class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Product Listing</p>
+        <h3>Featured products</h3>
+        <p>Each item includes a name, price, and short description, displayed in a responsive grid layout.</p>
+      </div>
+      <div id="product-grid" class="product-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="section-block split-layout">
+      <div class="cart-panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">Shopping Cart</p>
+          <h3>Your items</h3>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="cart-summary">
+          <div>
+            <span>Items</span>
+            <strong id="cart-count">0</strong>
+          </div>
+          <div>
+            <span>Total</span>
+            <strong id="cart-total">$0.00</strong>
+          </div>
+        </div>
+      </div>
+
+      <div id="checkout" class="checkout-panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">Checkout</p>
+          <h3>Simulated purchase</h3>
+          <p>Enter your details and place the order to see a confirmation message.</p>
+        </div>
+        <form id="checkout-form" class="checkout-form">
+          <label>
+            Name
+            <input type="text" id="customer-name" placeholder="Your full name" required />
+          </label>
+          <label>
+            Address <span class="optional">optional</span>
+            <textarea id="customer-address" rows="3" placeholder="Delivery address"></textarea>
+          </label>
+          <button type="submit" class="primary-btn full-width">Place Order</button>
+        </form>
+        <p id="confirmation-message" class="confirmation" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
